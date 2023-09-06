@@ -3,39 +3,83 @@
     <meta charset="UTF-8">
     <head>
         <title>Product Gallery</title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div>PRODUCTS</div>
-        <div>CART</div>
-        <h1>Our hand-made cinnamon rolls</h1>
-        <div id="original-cinnamon-roll">
-            <img src="products/original-cinnamon-roll.jpg" alt="Original cinnamon roll" width="250">
-            <p>Original cinnamon roll<br>$2.49</p>
-        </div>
-        <div id="apple-cinnamon-roll">
-            <img src="products/apple-cinnamon-roll.jpg" alt="Apple cinnamon roll" width="250">
-            <p>Apple cinnamon roll<br>$3.49</p>
-        </div>
-        <div id="raisin-cinnamon-roll">
-            <img src="products/raisin-cinnamon-roll.jpg" alt="Raisin cinnamon roll" width="250">
-            <p>Raisin cinnamon roll<br>$2.99</p>
-        </div>
-        <div id="walnut-cinnamon-roll">
-            <img src="products/walnut-cinnamon-roll.jpg" alt="Walnut cinnamon roll" width="250">
-            <p>Walnut cinnamon roll<br>$3.49</p>
-        </div>
-        <div id="double-chocolate-cinnamon-roll">
-            <img src="products/double-chocolate-cinnamon-roll.jpg" alt="Double-chocolate cinnamon roll" width="250">
-            <p>Double-chocolate cinnamon roll<br>$3.99</p>
-        </div>
-        <div id="strawberry-cinnamon-roll">
-            <img src="products/strawberry-cinnamon-roll.jpg" alt="Strawberry cinnamon roll" width="250">
-            <p>Strawberry cinnamon roll<br>$3.99</p>
-        </div>
-    </body>
-    
+        <header class="page-header">
+            <img id="logo" src="../assets/logo/logo-01.svg" alt="Bun Bun bake shop logo" width="400">
+            <hr>
+            <nav class="navigation">
+                <a href="ProductGallery.html" class="active-page">
+                    PRODUCTS
+                </a><br><br>
+                <a href="./ShoppingCart.html" class="inactive-page">
+                    CART
+                </a>
+            </nav>
+        </header>
 
-    
-    
-        
+        <main>
+            <section class="product-cards-container">
+                <div class="container-heading">
+                    <h1>Our hand-made cinnamon rolls</h1>
+                </div>
+                <a href="./ProductDetail.html">
+                <div class="product-card">
+                    <img src="products/original-cinnamon-roll.jpg" alt="Original cinnamon roll" width="400">
+                    <div class="item-descriptor">
+                        <p class="product-name">Original cinnamon roll</p>
+                        <p class="product-price">$ 2.49</p>
+                    </div>
+                </div>
+                </a>
+                <a href="./ProductDetail.html">
+                <div class="product-card">
+                    <img src="products/apple-cinnamon-roll.jpg" alt="Apple cinnamon roll" width="400">
+                    <div class="item-descriptor">
+                        <p class="product-name">Apple cinnamon roll</p>
+                        <p class="product-price">$ 3.49</p>
+                    </div>
+                </div>
+                </a>
+                <a href="./ProductDetail.html">
+                <div class="product-card">
+                    <img src="products/raisin-cinnamon-roll.jpg" alt="Raisin cinnamon roll" width="400">
+                    <div class="item-descriptor">
+                        <p class="product-name">Raisin cinnamon roll</p>
+                        <p class="product-price">$ 2.99</p>
+                    </div>
+                </div>
+                </a>
+                <a href="./ProductDetail.html">
+                <div class="product-card">
+                    <img src="products/walnut-cinnamon-roll.jpg" alt="Walnut cinnamon roll" width="400">
+                    <div class="item-descriptor">
+                        <p class="product-name">Walnut cinnamon roll</p>
+                        <p class="product-price">$ 3.49</p>
+                    </div>
+                </div>
+                </a>
+                <a href="./ProductDetail.html">
+                <div class="product-card">
+                    <img src="products/double-chocolate-cinnamon-roll.jpg" alt="Double-chocolate cinnamon roll" width="400">
+                    <div class="item-descriptor">
+                        <p class="product-name">Double-chocolate cinnamon roll</p>
+                        <p class="product-price">$ 3.99</p>
+                    </div>
+                </div>
+                </a>
+                <a href="./ProductDetail.html">
+                <div class="product-card">
+                    <img src="products/strawberry-cinnamon-roll.jpg" alt="Strawberry cinnamon roll" width="400">
+                    <div class="item-descriptor"> 
+                        <p class="product-name">Strawberry cinnamon roll</p>
+                        <p class="product-price">$ 3.99</p>
+                    </div>
+                </div>
+                </a>
+            </section>
+        </main>
+    </body>
+            
 </html>
