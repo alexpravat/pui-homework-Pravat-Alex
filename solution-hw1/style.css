@@ -89,6 +89,7 @@ select{
 
 .checkout-button {
     margin-top: -50px;
+    margin: auto;
 }
 
 .remove-button {
