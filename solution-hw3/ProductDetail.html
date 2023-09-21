@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Product Detail</title>
+        <link rel="stylesheet" href="style.css"/>
+    </head>
+    <body>
+        <header class="page-header">
+            <img id="logo" src="../assets/logo/logo-01.svg" alt="Bun Bun bake shop logo" width="400"/>
+            <nav class="navigation">
+                <div class="navigation-buttons">
+                    <a href="ProductGallery.html" id="active-page">
+                        PRODUCTS
+                    </a>
+                    <a href="./ShoppingCart.html" id="inactive-page">
+                        CART
+                    </a>
+                </div>
+                <hr>
+                <div class="page-heading">
+                    <h1>Original cinnamon roll</h1>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section class="product-cards-detail-container">
+                <div class="product-card-detail-image">
+                    <img class="product-card-detail-image" src="products/original-cinnamon-roll.jpg" alt="Original cinnamon roll" width="600" height="600"/>
+                </div>
+                <div class="customization">
+                    <p class="customization-description">Customize our delicious, hand-made cinnamon roll to your liking!</p>
+                    <p class="glazing-types">
+                        <label for="glazingTypes">Glazing:</label>
+                            <select id="glazingTypes" name="glazingTypes">
+                            </select>
+                    </p>
+
+                    <p class="pack-size">
+                        <label for="packSize">Pack size:</label>
+                            <select id="packSize" name="packSize">
+                            </select>
+                    </p>
+                    
+                    <div class="add-to-cart">
+                        <div>
+                            <p id=ProductDetailPrice>$ 2.49</p>
+                        </div>    
+                        <div>
+                            <button type="button" class="add-to-cart-button">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <script src="./functionality.js"></script>
+    </body>
+</html>
