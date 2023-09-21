@@ -5,7 +5,12 @@ const glazingPriceAdaptations = {
     "Double chocolate": 1.50
 };
 
-const packSizes = [1, 3, 6, 12];
+const packPriceAdaptation = {
+    1: 1,
+    3: 3,
+    6: 5,
+    12: 10,
+}
 
 function populateDropdownOptions() { //function to populate labels with drop down options
     const glazingDropdown = document.getElementById("glazingTypes");
@@ -18,12 +23,12 @@ function populateDropdownOptions() { //function to populate labels with drop dow
         glazingDropdown.appendChild(option);
     }
 
-    packSizes.forEach((size) => {
+    for (packSize in packPriceAdaptation) {
         const option = document.createElement("option");
-        option.value = size;
-        option.textContent = size;
+        option.value = packSize;
+        option.textContent = packSize;
         packSizeDropdown.appendChild(option);
-    });
+    }
 }
 
 populateDropdownOptions();
@@ -34,8 +39,9 @@ function updateTotalPrice() { //function to update price based on user selection
     let packSizeOption = document.getElementById("packSize").value;
 
     const glazingPrice = glazingPriceAdaptations[glazingOption];
+    const packMultiplier = packPriceAdaptation[packSizeOption];
 
-    const totalPrice = ((2.49 + glazingPrice) * packSizeOption);
+    const totalPrice = ((2.49 + glazingPrice) * packMultiplier);
     ProductDetailPrice.textContent = "$"+ totalPrice.toFixed(2);
     //console.log(totalPrice) 
 }
