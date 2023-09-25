@@ -12,7 +12,7 @@ const packPriceAdaptation = {
     12: 10,
 }
 
-function populateDropdownOptions() { //function to populate labels with drop down options
+function populateDropdownOptions() { //populate Glazing and Pack Size labels with dropdown options
     const glazingDropdown = document.getElementById("glazingTypes");
     const packSizeDropdown = document.getElementById("packSize");
 
@@ -33,7 +33,7 @@ function populateDropdownOptions() { //function to populate labels with drop dow
 
 populateDropdownOptions();
 
-function updateTotalPrice() { //function to update price based on user selection
+function updateTotalPrice() { //update price based on user Glazing and Pack Size selection
     const ProductDetailPrice = document.getElementById("ProductDetailPrice");
     let glazingOption = document.getElementById("glazingTypes").value;
     let packSizeOption = document.getElementById("packSize").value;
