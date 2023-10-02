@@ -14,4 +14,4 @@ for (let i = 0; i < productCards.length; i++) {
 
     productName.textContent = `${rollType} cinnamon roll`;
     productPrice.textContent = `$${rolls[rollType].basePrice.toFixed(2)}`;
-}
+};
