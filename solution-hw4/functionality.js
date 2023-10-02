@@ -62,13 +62,12 @@ document.getElementById("packSize").addEventListener("change", updateTotalPrice)
 document.querySelector('.page-heading h1').textContent = `${rollType} Cinnamon Roll`;
 
 const productImage = document.querySelector('.product-card-detail-image img');
-productImage.src = `products/${rollType}-cinnamon-roll.jpg`;
+productImage.src = `products/${rollType.toLowerCase()}-cinnamon-roll.jpg`;
 console.log(productImage.src)
 
 const cart = [];
 
 function addToCart(){ //add user input to cart[] array and print roll info in foncolse
-    
     const glazingOption = glazingDropdown.value;
     const packSizeOption = packSizeDropdown.value;
 
