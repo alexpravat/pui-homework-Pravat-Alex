@@ -1,4 +1,5 @@
 import { rolls } from "./rollsData.js";
+
 const queryString = window.location.search;
     const params = new URLSearchParams(queryString);
     const rollType = params.get('roll');
@@ -20,11 +21,10 @@ const packPriceAdaptation = {
 }
 
 let packSize = 1;
+const glazingDropdown = document.getElementById("glazingTypes");
+const packSizeDropdown = document.getElementById("packSize");
 
 function populateDropdownOptions() { //populate Glazing and Pack Size labels with dropdown options
-    const glazingDropdown = document.getElementById("glazingTypes");
-    const packSizeDropdown = document.getElementById("packSize");
-
     for (const glazingOption in glazingPriceAdaptations) {
         const option = document.createElement("option");
         option.value = glazingOption;
@@ -42,9 +42,6 @@ function populateDropdownOptions() { //populate Glazing and Pack Size labels wit
 
 populateDropdownOptions();
 
-let glazingOption = document.getElementById("glazingTypes").value;
-let packSizeOption = document.getElementById("packSize").value;
-
 function updateTotalPrice() { //update price based on user Glazing and Pack Size selection
     const ProductDetailPrice = document.getElementById("ProductDetailPrice");
     let glazingOption = document.getElementById("glazingTypes").value;
@@ -52,12 +49,12 @@ function updateTotalPrice() { //update price based on user Glazing and Pack Size
 
     const glazingPrice = glazingPriceAdaptations[glazingOption];
     const packMultiplier = packPriceAdaptation[packSizeOption];
-
+    
     const totalPrice = ((basePrice + glazingPrice) * packMultiplier);
     ProductDetailPrice.textContent = "$"+ totalPrice.toFixed(2);
 }
 
-updateTotalPrice();
+updateTotalPrice(); 
 
 document.getElementById("glazingTypes").addEventListener("change", updateTotalPrice);
 document.getElementById("packSize").addEventListener("change", updateTotalPrice);
@@ -66,15 +63,13 @@ document.querySelector('.page-heading h1').textContent = `${rollType} Cinnamon R
 
 const productImage = document.querySelector('.product-card-detail-image img');
 productImage.src = `./products/${rollType}-cinnamon-roll.jpg`;
-
+console.log(productImage.src)
 
 const cart = [];
 
-function addToCart(){
-    const glazingDropdown = document.getElementById("glazingTypes");
+function addToCart(){ //add user input to cart[] array and print roll info in foncolse
+    
     const glazingOption = glazingDropdown.value;
-
-    const packSizeDropdown = document.getElementById("packSize");
     const packSizeOption = packSizeDropdown.value;
 
     const rollInfo = rolls[rollType];
