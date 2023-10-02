@@ -1,3 +1,10 @@
+import { rolls } from "./rollsData.js";
+const queryString = window.location.search;
+    const params = new URLSearchParams(queryString);
+    const rollType = params.get('roll');
+    const rollInfo =rolls[rollType];
+    const basePrice = rollInfo.basePrice;
+
 const glazingPriceAdaptations = {
     "Keep original": 0.00,
     "Sugar milk": 0.00,
@@ -11,6 +18,8 @@ const packPriceAdaptation = {
     6: 5,
     12: 10,
 }
+
+let packSize = 1;
 
 function populateDropdownOptions() { //populate Glazing and Pack Size labels with dropdown options
     const glazingDropdown = document.getElementById("glazingTypes");
@@ -33,6 +42,9 @@ function populateDropdownOptions() { //populate Glazing and Pack Size labels wit
 
 populateDropdownOptions();
 
+let glazingOption = document.getElementById("glazingTypes").value;
+let packSizeOption = document.getElementById("packSize").value;
+
 function updateTotalPrice() { //update price based on user Glazing and Pack Size selection
     const ProductDetailPrice = document.getElementById("ProductDetailPrice");
     let glazingOption = document.getElementById("glazingTypes").value;
@@ -41,13 +53,49 @@ function updateTotalPrice() { //update price based on user Glazing and Pack Size
     const glazingPrice = glazingPriceAdaptations[glazingOption];
     const packMultiplier = packPriceAdaptation[packSizeOption];
 
-    const totalPrice = ((2.49 + glazingPrice) * packMultiplier);
+    const totalPrice = ((basePrice + glazingPrice) * packMultiplier);
     ProductDetailPrice.textContent = "$"+ totalPrice.toFixed(2);
-    //console.log(totalPrice) 
 }
 
 updateTotalPrice();
 
 document.getElementById("glazingTypes").addEventListener("change", updateTotalPrice);
 document.getElementById("packSize").addEventListener("change", updateTotalPrice);
+
+document.querySelector('.page-heading h1').textContent = `${rollType} Cinnamon Roll`;
+
+const productImage = document.querySelector('.product-card-detail-image img');
+productImage.src = `./products/${rollType}-cinnamon-roll.jpg`;
+
+
+const cart = [];
+
+function addToCart(){
+    const glazingDropdown = document.getElementById("glazingTypes");
+    const glazingOption = glazingDropdown.value;
+
+    const packSizeDropdown = document.getElementById("packSize");
+    const packSizeOption = packSizeDropdown.value;
+
+    const rollInfo = rolls[rollType];
+    
+    const roll = new Roll(rollType, glazingOption, packSizeOption, basePrice);
+
+    cart.push(roll);
+
+    console.log("Cart: ", cart);
+}
+
+class Roll {
+    constructor(rollType, rollGlazing, packSize, basePrice) {
+        this.type = rollType;
+        this.glazing =  rollGlazing;
+        this.size = packSize;
+        this.basePrice = basePrice;
+    }
+}
+
+const addToCartButton = document.querySelector(".add-to-cart-button");
+addToCartButton.addEventListener("click", addToCart);
+
 
