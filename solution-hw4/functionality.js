@@ -62,7 +62,7 @@ document.getElementById("packSize").addEventListener("change", updateTotalPrice)
 document.querySelector('.page-heading h1').textContent = `${rollType} Cinnamon Roll`;
 
 const productImage = document.querySelector('.product-card-detail-image img');
-productImage.src = `./products/${rollType}-cinnamon-roll.jpg`;
+productImage.src = `products/${rollType}-cinnamon-roll.jpg`;
 console.log(productImage.src)
 
 const cart = [];
