@@ -63,7 +63,6 @@ document.querySelector('.page-heading h1').textContent = `${rollType} Cinnamon R
 
 const productImage = document.querySelector('.product-card-detail-image img');
 productImage.src = `products/${rollType.toLowerCase()}-cinnamon-roll.jpg`;
-console.log(productImage.src)
 
 const cart = [];
 
