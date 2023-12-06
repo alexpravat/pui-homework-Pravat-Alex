@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Tracker App</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/progressbar.js/1.1.0/progressbar.min.js"></script>
+</head>
+<body>
+    <header id="top-menu">
+        <div id="heading">
+            <h1>Today's Workout</h1>
+            <p>Record each set. <br><br>
+                When finished, end workout to see your recommended sets for your next workout.</p>
+        </div>
+        <div id="rest-timer-container">
+            <h2>Rest Timer</h2>
+            <div class="rest-timer">
+                <div id="countdown-container"></div>
+                <div class="timer-button-container">
+                    <button id="start-timer">Start</button>
+                    <button id="pause-timer">Pause</button>
+                    <button id="reset-timer">Reset</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main id="app">
+        <div class="exercise-container" id="deadlift">
+            <div class="exercise-container-name">
+                <h2>Deadlift</h2>
+                <h4><a href="https://stronglifts.com/deadlift/">Learn more about this exercise</a></h4>
+            </div>
+            <div class="exercise-container-content">
+                <div class="exercise-header">
+                    <div class="header-set">
+                        Set
+                    </div>
+                    <div class="header-weight">
+                        Weight
+                    </div>
+                    <div class="header-reps">
+                        Reps
+                    </div>
+                    <div class="header-exertion">
+                        Exertion
+                    </div>
+                </div>
+                <ul id="deadlift-sets" class="sets-list"></ul>
+            </div>
+            <div class="new-set-container" style="display: none;">
+                <div class="new-set-input">
+                    <div class="new-set-weight">
+                        <div class="new-set-header">
+                            Weight
+                        </div>
+                        <input type="number" placeholder="Weight" class="deadlift-weight">
+                        <div class="error-message" id="deadlift-weight-error"></div>
+                    </div>
+                    <div class="new-set-reps">
+                        <div class="new-set-header">
+                            Reps
+                        </div>
+                        <input type="number" placeholder="Reps" class="deadlift-reps">
+                        <div class="error-message" id="deadlift-reps-error"></div>
+                    </div>
+                    <div class="new-set-exertion">
+                        <div class="new-set-header">Exertion <span class="whats-this"><a href="https://support.stronglifts.com/article/115-rpe">(what's this?)</a></span></div>
+                        <div class="exertion-scale" data-exercise="deadlift">
+                            <span class="exertion-dot" data-value="1">1</span>
+                            <span class="exertion-dot" data-value="2">2</span>
+                            <span class="exertion-dot" data-value="3">3</span>
+                            <span class="exertion-dot" data-value="4">4</span>
+                            <span class="exertion-dot" data-value="5">5</span>
+                        </div>
+                        <div class="error-message" id="deadlift-exertion-error"></div>
+                    </div>
+                </div>
+                <button type="button" class="add-set-btn" data-exercise="deadlift">Add Set</button>
+            </div>
+        </div> 
+
+        <div class="exercise-container" id="squat">
+            <div class="exercise-container-name">
+                <h2>Squat</h2>
+                <h4><a href="https://stronglifts.com/squat/">Learn more about this exercise</a></h4>
+            </div>
+            <div class="exercise-container-content">
+                <div class="exercise-header">
+                    <div class="header-set">
+                        Set
+                    </div>
+                    <div class="header-weight">
+                        Weight
+                    </div>
+                    <div class="header-reps">
+                        Reps
+                    </div>
+                    <div class="header-exertion">
+                        Exertion
+                    </div>
+                </div>
+                <ul id="squat-sets" class="sets-list"></ul>
+            </div>
+            <div class="new-set-container" style="display: none;">
+                <div class="new-set-input">
+                    <div class="new-set-weight">
+                        <div class="new-set-header">Weight</div>
+                        <input type="number" placeholder="Weight" class="squat-weight">
+                        <div class="error-message" id="squat-weight-error"></div>
+                    </div>
+                    <div class="new-set-reps">
+                        <div class="new-set-header">Reps</div>
+                        <input type="number" placeholder="Reps" class="squat-reps">
+                        <div class="error-message" id="squat-reps-error"></div>
+                    </div>
+                    <div class="new-set-exertion">
+                        <div class="new-set-header">Exertion <span class="whats-this"><a href="https://support.stronglifts.com/article/115-rpe">(what's this?)</a></span></div>
+                        <div class="exertion-scale" data-exercise="squat">
+                            <span class="exertion-dot" data-value="1">1</span>
+                            <span class="exertion-dot" data-value="2">2</span>
+                            <span class="exertion-dot" data-value="3">3</span>
+                            <span class="exertion-dot" data-value="4">4</span>
+                            <span class="exertion-dot" data-value="5">5</span>
+                        </div>
+                        <div class="error-message" id="squat-exertion-error"></div>
+                    </div>
+                </div>
+                <button type="submit" class="add-set-btn" data-exercise="squat">Add Set</button>
+            </div>
+        </div>
+        
+        <div class="exercise-container" id="bench">
+            <div class="exercise-container-name">
+                <h2>Bench</h2>
+                <h4><a href="https://stronglifts.com/bench/">Learn more about this exercise</a></h4>
+            </div>
+            <div class="exercise-container-content">
+                <div class="exercise-header">
+                    <div class="header-set">
+                        Set
+                    </div>
+                    <div class="header-weight">
+                        Weight
+                    </div>
+                    <div class="header-reps">
+                        Reps
+                    </div>
+                    <div class="header-exertion">
+                        Exertion
+                    </div>
+                </div>
+                <ul id="bench-sets" class="sets-list"></ul>
+            </div>
+            <div class="new-set-container" style="display: none;">
+                <div class="new-set-input">
+                    <div class="new-set-weight">
+                        <div class="new-set-header">Weight</div>
+                        <input type="number" placeholder="Weight" class="bench-weight">
+                        <div class="error-message" id="bench-weight-error"></div>
+                    </div>
+                    <div class="new-set-reps">
+                        <div class="new-set-header">Reps</div>
+                        <input type="number" placeholder="Reps" class="bench-reps">
+                        <div class="error-message" id="bench-reps-error"></div>
+                    </div>
+                    <div class="new-set-exertion">
+                        <div class="new-set-header">Exertion <span class="whats-this"><a href="https://support.stronglifts.com/article/115-rpe">(what's this?)</a></span></div>
+                        <div class="exertion-scale" data-exercise="bench">
+                            <span class="exertion-dot" data-value="1">1</span>
+                            <span class="exertion-dot" data-value="2">2</span>
+                            <span class="exertion-dot" data-value="3">3</span>
+                            <span class="exertion-dot" data-value="4">4</span>
+                            <span class="exertion-dot" data-value="5">5</span>
+                        </div>
+                        <div class="error-message" id="bench-exertion-error"></div>
+                    </div>
+                </div>
+                <button type="submit" class="add-set-btn" data-exercise="bench">Add Set</button>
+            </div>
+        </div>
+
+        <div class="end-workout-container">
+            <button type="submit" id="end-workout">End Workout</button>
+        </div>
+    </main>
+
+<script src="functionality.js"></script>
+</body>
+</html>
